@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class PerfilScreen extends StatelessWidget {
+class NoticiasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Perfil'),
+        title: Text('Noticias'),
       ),
       body: Center(
         child: Container(
@@ -20,18 +20,7 @@ class PerfilScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: AssetImage('assets/goku.jpeg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
+
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -42,19 +31,27 @@ class PerfilScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Nombre: Marcos Heredia',
+                      'Ya se han anunciado todos los juegos de PS Plus en marzo de 2024. '
+                          'Cuatro títulos que se añaden al catálogo de PlayStation Plus Essential, los cuales podrás descargar y jugar tanto en PS5 y PS4. '
+                          'Los juegos estarán disponibles para descargar el próximo 5 de marzo (la fecha límite es el 1 de abril).'
+                          'Juegos de PS Plus en marzo de 2023: Sifu (PS5 y PS4) | Destiny 2: La reina bruja (PS5 y PS4) | F1 23 (PS5 y PS4) | Hello Neighbor 2 (PS5 y PS4)'
+                      ,
+
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Correo: MarcosHeredia@gmail.com',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    SizedBox(height: 40),
+                    Container(
+                      width: 500,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                          image: AssetImage('assets/juegos.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Fecha de nacimiento: 11/11/2011',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
+                    SizedBox(height: 40),
                   ],
                 ),
               ),

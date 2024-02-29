@@ -8,14 +8,18 @@ class GameListScreen extends StatefulWidget {
 }
 
 class _GameListScreenState extends State<GameListScreen> {
-  List<String> games = ["Call Of Duty", "Fortnite", "Minecraft", "Pokemon"]; // Lista de videojuegos
-
+  List<String> games = [
+    "Call Of Duty",
+    "Fortnite",
+    "Minecraft",
+    "Pokemon"
+  ]; // Lista de videojuegos
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tienda de Videojuegos'),
+        title: Text('Luxury Gaming'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -23,10 +27,14 @@ class _GameListScreenState extends State<GameListScreen> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.deepPurple, Colors.greenAccent],
+                ),
               ),
               child: Text(
-                'Menú',
+                'Work hard, play hard',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -45,27 +53,26 @@ class _GameListScreenState extends State<GameListScreen> {
               },
             ),
             ListTile(
-              title: Text('Añadir Juego'),
-              onTap: () {
-                _addGame();
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
               title: Text('Noticias'),
               onTap: () {
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PerfilScreen(),
+                  ),
+                );
               },
             ),
           ],
         ),
       ),
+
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.deepPurple.shade800, Colors.deepPurple.shade200],
+            colors: [Colors.deepPurple, Colors.greenAccent],
           ),
         ),
         child: ListView.builder(
@@ -76,7 +83,8 @@ class _GameListScreenState extends State<GameListScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => GameDetailScreen(gameName: games[index]),
+                    builder: (context) =>
+                        GameDetailScreen(gameName: games[index]),
                   ),
                 );
               },
