@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectoflutter03/Noticias.dart';
 import 'detallesJuego.dart';
 import 'Perfil.dart';
 
@@ -58,7 +59,7 @@ class _PantallaListaJuegosState extends State<PantallaListaJuegos> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PantallaPerfil(),
+                    builder: (context) => PantallaNoticias(),
                   ),
                 );
               },
