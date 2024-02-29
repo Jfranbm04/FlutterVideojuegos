@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NoticiasScreen extends StatelessWidget {
+class PantallaNoticias extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,6 @@ class NoticiasScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),

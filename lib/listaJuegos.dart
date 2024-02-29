@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'detallesJuego.dart';
 import 'Perfil.dart';
 
-class GameListScreen extends StatefulWidget {
+class PantallaListaJuegos extends StatefulWidget {
   @override
-  _GameListScreenState createState() => _GameListScreenState();
+  _PantallaListaJuegosState createState() => _PantallaListaJuegosState();
 }
 
-class _GameListScreenState extends State<GameListScreen> {
-  List<String> games = [
+class _PantallaListaJuegosState extends State<PantallaListaJuegos> {
+  List<String> juegos = [
     "Call Of Duty",
     "Fortnite",
     "Minecraft",
@@ -34,7 +34,7 @@ class _GameListScreenState extends State<GameListScreen> {
                 ),
               ),
               child: Text(
-                'Work hard, play hard',
+                'Work hard, Play hard',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -47,7 +47,7 @@ class _GameListScreenState extends State<GameListScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PerfilScreen(),
+                    builder: (context) => PantallaPerfil(),
                   ),
                 );
               },
@@ -58,7 +58,7 @@ class _GameListScreenState extends State<GameListScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PerfilScreen(),
+                    builder: (context) => PantallaPerfil(),
                   ),
                 );
               },
@@ -76,7 +76,7 @@ class _GameListScreenState extends State<GameListScreen> {
           ),
         ),
         child: ListView.builder(
-          itemCount: games.length,
+          itemCount: juegos.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
@@ -84,7 +84,7 @@ class _GameListScreenState extends State<GameListScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        GameDetailScreen(gameName: games[index]),
+                        PantallaDetallesJuego(nombreJuego: juegos[index]),
                   ),
                 );
               },
@@ -93,7 +93,7 @@ class _GameListScreenState extends State<GameListScreen> {
                 margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                 child: ListTile(
                   title: Text(
-                    games[index],
+                    juegos[index],
                     style: TextStyle(fontSize: 18.0),
                   ),
                   leading: CircleAvatar(
@@ -107,23 +107,23 @@ class _GameListScreenState extends State<GameListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _addGame();
+          _agregarJuego();
         },
         child: Icon(Icons.add),
       ),
     );
   }
 
-  void _addGame() {
+  void _agregarJuego() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        TextEditingController gameController = TextEditingController();
+        TextEditingController controladorJuego = TextEditingController();
 
         return AlertDialog(
           title: Text('Nuevo Videojuego'),
           content: TextField(
-            controller: gameController,
+            controller: controladorJuego,
             decoration: InputDecoration(hintText: 'Ingrese un videojuego'),
           ),
           actions: <Widget>[
@@ -135,9 +135,9 @@ class _GameListScreenState extends State<GameListScreen> {
             ),
             TextButton(
               onPressed: () {
-                if (gameController.text.isNotEmpty) {
+                if (controladorJuego.text.isNotEmpty) {
                   setState(() {
-                    games.add(gameController.text);
+                    juegos.add(controladorJuego.text);
                   });
                   Navigator.of(context).pop();
                 }

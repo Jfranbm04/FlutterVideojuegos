@@ -1,9 +1,10 @@
 class Juego {
-  final String imagePath;
-  final String description;
+  final String rutaImagen;
+  final String descripcion;
 
   Juego({
-    required this.imagePath,
-    required this.description,
+    required this.rutaImagen,
+    required this.descripcion,
   });
 }
+
